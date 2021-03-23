@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //99乘法
+
+        //外層i = 1 先進去判讀裡面for的 j = 1 打印 1 * 1 = 1
+        //內層接著 判讀第2圈 j++ 打印後 1 * 2 = 2  9次循環後
+        // 逃脫該層 繼續判讀 外層i++ -> i = 2  繼續往內層判斷迴圈
+
+        for (let i = 1; i <= 9; i++) {
+            for (let j = 1; j <= 9; j++) {
+                //在Console 面板輸出結果
+                console.log(i + " * " + j + ' = ' + (i * j));
+            }
+        }
+
+
+
+        // write 打印
+        for (let i = 1; i <= 9; i++) {
+            for (let j = 1; j <= 9; j++) {
+                //在網頁輸出結果
+                document.write(i + " * " + j + " = " + (i * j) + "&nbsp;");
+            }
+            document.write('<br />');
+        }
+
+    </script>
+</body>
+
+</html>

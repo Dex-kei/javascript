@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //建立暱名函式
+        let say = function () {
+            console.log('Hello World!');
+        }
+
+        //帶有參數的暱名函式
+        let greet = function (name) {
+            console.log('Hello, ' + name);
+        }
+
+        //有回傳值的暱名函式
+        let getMessage = function (name) {
+            return 'Good job!';
+        }
+
+        //依序執行各個函式
+        say();
+        greet('Alex');
+        console.log(getMessage());
+    </script>
+</body>
+
+</html>

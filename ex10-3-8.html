@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //建立二維陣列：
+        let arr1d = [];
+        for (let i = 1; i <= 9; i++) {
+            //先建立一維陣列
+            arr1d.push(i);
+        }
+
+        let arr2d = [];
+        for (let j = 1; j <= 9; j++) {
+            //連續新增先前建立的一維陣列，便可成為二維陣列
+            arr2d.push(arr1d);
+        }
+
+        console.log(arr2d);
+    </script>
+</body>
+
+</html>

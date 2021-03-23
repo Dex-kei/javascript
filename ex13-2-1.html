@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //定義一個函式
+        function test() {
+            //宣告區域變數
+            //這邊只var宣告 var01 = 'A' 單一宣告
+            var var01 = 'A';
+
+            //宣告全域變數
+            var02 = 'B';
+
+            document.write('var01 = ' + var01 + '<br>');// 輸出 A
+            document.write('var02 = ' + var02 + '<hr>');// 輸出 B
+        }
+
+        //在 function 外定義變數
+        var var03 = 'C';
+
+        test();
+
+        //document.write('var01 = ' + var01 + '<br>');　// 拋出錯誤
+        document.write('var02 = ' + var02 + '<br>');// 輸出 B
+        document.write('var03 = ' + var03 + '<br>');// 輸出 C
+
+    </script>
+</body>
+
+</html>

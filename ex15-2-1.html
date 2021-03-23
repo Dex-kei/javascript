@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //三秒後跳出訊息 Hello World
+        //alert彈跳視窗 , 3000 = 3000毫秒 = 3秒後運作
+        setTimeout(function () { alert('Hello World'); }, 3000);
+
+        //自訂函式後，使用 setTimeout 來調用自訂函式
+        function getMessage() {
+            alert('Good job!');
+        }
+
+        //十秒後跳出訊息 Good job!
+        //getMessage, 10000= 10000毫秒 =10秒後運作
+        setTimeout(getMessage, 10000);
+    </script>
+</body>
+
+</html>

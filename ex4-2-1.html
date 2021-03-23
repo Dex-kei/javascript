@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // parseInt()可以傳回字串轉換而成的整數
+        console.log(parseInt("abc"));
+        // 傳回NaN
+        console.log(parseInt("123abc"));
+        // 傳回123
+        console.log(parseInt("abc123"));
+        // 傳回NaN
+        console.log(parseInt("     123abc"));
+        // 傳回123
+
+        //parseFloat()可以傳回由字串轉換而成的浮點數。
+        //parseFloat 會傳回一個在String 中之的數值。
+        //如果沒有任何可以傳回的浮點數值，則會傳回 NaN (使用isNaN()可以判斷是否為NaN)。
+        //parseFloat 只傳回第一個數字。前後空格會被省略。
+
+        console.log(parseFloat("20"));
+        // 傳回20
+        console.log(parseFloat("30.00"));
+        // 傳回30
+        console.log(parseFloat("10.68"));
+        // 傳回10.68
+        console.log(parseFloat("12 22 32"));
+        // 傳回12
+        console.log(parseFloat("             80   "));
+        // 傳回80
+        console.log(parseFloat("378abc"));
+        // 傳回378
+        console.log(parseFloat("abc378"));
+        // 傳回NaN
+
+        //Number() 可以將物件轉化成數值。
+        //若無法轉成數字則傳回NaN
+
+        console.log(Number(true));
+        // 傳回1
+        console.log(Number(false));
+        // 傳回0
+        console.log(Number(new Date()));
+        // 傳回 1970/1/1到現在的毫秒數
+        console.log(Number("123"));
+        // 傳回123
+        console.log(Number("123 456"));
+        // 傳回NaN  在數字當中有空白 會判定為字串所以NaN
+
+
+
+    </script>
+</body>
+
+</html>

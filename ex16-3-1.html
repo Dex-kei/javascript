@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 小圓圈 */
+        .circle {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: none;
+            width: 10px;
+            height: 10px;
+            background-color: gray;
+            border-radius: 50%;
+        }
+
+        /* 圓形邊界 */
+        .wrap {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- div.wrap 是大的圓形邊界 -->
+    <div class="wrap" id="wrap"></div>
+
+    <!-- div.circle 是之後要連續環狀複製的小圓圈 -->
+    <div class="circle" id="circle"></div>
+
+
+    <script>
+        //環狀排列的半徑
+        let radius = 250;
+
+        //取得繪製用圓形的元素
+        let circle = document.getElementById('circle');
+
+        //取得既有圓形（小圓）的元素
+        let wrap = document.getElementById('wrap');
+
+        //角度
+        let degree = 0
+
+        //幾個小圓
+        let qty = 6;
+
+        //每次小圓的移動次數
+        let moveLength = 360 / qty;
+
+        //給 clearInterval 用的實體 id
+        let t;
+
+        //透過 setInterval 來週期性執行繪圖函式
+        t = setInterval(function () {
+            draw();
+
+        }, 500);
+
+        //定義繪圖函式
+        function draw() {
+            //當前角度加上最後一步的距離，大於等於 360，則結束繪圖
+            if (degree + moveLength >= 360) {
+                clearInterval(t);
+            };
+
+            //計算當前的角度
+            degree += moveLength;
+
+            //取得既有圓形的 left 與 top
+            let wrap_left = wrap.offsetLeft;
+            let wrap_top = wrap.offsetTop;
+
+            /**
+         * 餘弦角度對照表
+         * http://mo.ab126.com/geometric/3727.html
+         * 
+         * cos(0°) = 1
+         * cos(60°) = 0.5
+         * cos(120°) = -0.5
+         * cos(180°) = -1
+         * cos(240°) = -0.5
+         * cos(300°) = 0.5
+         * cos(360°) = 1
+         */
+
+            let x = Math.cos(degree * (Math.PI / 180)) * radius;
+
+            //計算小圓 x 的相對位置。element.style.left 需要填寫數值加 px 字串
+            circle.style.left = (wrap_left + radius + x) + "px";
+
+            /** 
+            * 正弦角度對照表
+            * http://mo.ab126.com/geometric/3726.html
+            * 
+            * sin(0°) = 0
+            * sin(60°) = 0.866025
+            * sin(120°) = 0.866025
+            * sin(180°) = 0
+            * sin(240°) = -0.866025
+            * sin(300°) = -0.866025
+            * sin(360°) = 0
+            */
+
+            var y = Math.sin(degree * (Math.PI / 180)) * radius;
+
+            //計算小圓的相對位置。element.style.top 需要填寫數值加 px 字串
+            circle.style.top = (wrap_top + radius - y) + "px";
+
+            //顯示小圓
+            circle.style.display = 'block';
+
+            //複製小圓
+            let newCircle = circle.cloneNode(true);
+
+            //將複製小圓放到 <body> 當中
+            document.body.appendChild(newCircle);
+
+
+
+
+        }
+    </script>
+
+
+</body>
+
+</html>

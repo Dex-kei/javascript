@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hard</title>
+</head>
+
+<body>
+
+    <script>
+
+        let arrMeal = ['麥當勞', '肯德基', '摩斯漢堡', '頂呱呱', '漢堡王'];
+
+        //Math.floor為 回傳不大於x 的最大整數值
+        // 0 < math.random < 1 
+        //透過math.random取0~1之間 *5個陣列數
+        //取亂數中的 整數0 ~ 4   陣列數量為5個 0~4  得到0~4的數字 
+
+        //可改為  Math.floor(Math.random() * arrMeal.length);可以隨著字串長度隨時修正陣列數
+        let inxRandom = Math.floor(Math.random() * 5);
+
+        document.write(`我可以選擇的餐廳有: <br />`);
+
+        for (let i = 0; i < arrMeal.length; i++) {
+            document.write('● ' + arrMeal[i] + ' <br />');
+        }
+
+        document.write(`今天中餐, 我選擇 ${arrMeal[idxRandom]}`);
+    </script>
+</body>
+
+</html>

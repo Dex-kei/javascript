@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 求 刪除尾端 往前補後 第9487次後的陣列模式
+
+        // 練習延伸 
+        let listOfName = ['Alex', 'Bill', 'Cook', 'Darren'];
+
+        for (let i = 1; i <= 9487; i++) {
+
+            //先pop拔出來 
+            let num = listOfName.pop();
+            //拔出來的值 用unshift 塞到前面
+            listOfName.unshift(num);
+        }
+
+
+        console.log(listOfName);
+    </script>
+</body>
+
+</html>
