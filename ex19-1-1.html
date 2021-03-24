@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button name="btn_get" id="btn_get">使用 GET 傳遞</button>
+    <br />
+    <button name="btn_post" id="btn_post">使用 POST 傳遞</button>
+    <br />
+    <button name="btn_ajax" id="btn_ajax">使用 Ajax 傳遞</button>
+
+    <div id="message"></div>
+
+    <!-- 引入 jQuery 的函式庫 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        let div = document.querySelector("div#message");
+
+        $(document).ready(function () {
+
+            //使用 GET 傳遞  缺點-> ID回傳值 會呈現在網址上面 例如:密碼
+            //透過JQ .on綁定該點擊按鈕事件
+            $(document).on('click', 'button#btn_get', function () {
+                $.get("https://httpbin.org/get", function (objJson) {
+                    //透過JSON.stringify 將javascript值 轉換JSON字串
+                    div.innerHTML = JSON.stringify(objJson)
+                });
+            });
+
+
+            //使用 POST 傳遞 可將ID回傳值 隱藏在表單裡面 網址不會呈現
+            $(document).on('click', 'button#btn_post',
+                function () {
+                    $.post("https://httpbin.org/post ", {
+                        postMethod: "1"
+                    })
+                        .done(function (objJson) {
+                            div.innerHTML = JSON.stringify(objJson)
+                                ;
+                        });
+                });
+
+
+            $(document).on('click', 'button#btn_ajax',
+                function () {
+                    $.ajax({
+                        method: 'POST', //GET
+                        url: "https://httpbin.org/post",
+                        data: {
+                            postMethod: "1"
+                        }
+
+                    }).done(function (objJson) {
+                        div.innerHTML = JSON.stringify(objJson);
+                    });
+                });
+
+        });
+
+
+
+    </script>
+
+
+</body>
+
+</html>
