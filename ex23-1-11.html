@@ -28,6 +28,7 @@
         //宣告 fileUpload 為選擇器->input當中的 file
         let fileUpload = document.querySelector('input[type="file"][name="fileUpload"]');
 
+
         /**
      * 增加 accept 屬性，設定允許上傳的檔案格式
      * 可以指定副檔名，也可以參考網際網路媒體型式（media type）
@@ -42,6 +43,7 @@
         fileUpload.accept = '.png,.jpg';
 
         //監聽上傳檔案的元素，選擇檔案後，
+        //addEventListener加入事件監聽
         fileUpload.addEventListener("change", function (event) {
             /**
                      * 在這裡的 this 指的是 fileUpload 這個 input 元素，
