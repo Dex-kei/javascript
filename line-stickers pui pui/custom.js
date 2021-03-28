@@ -2407,9 +2407,15 @@ let ul = document.querySelector("ul#myList")
 // let new_ul = document.createElement("ul");
 // new_ul.setAttribute("id", "myList");
 
+
+
+//因為接下來只配對單一圖片連結，不用設定 //g 進行全域配對
+let re = /https?:\/\/stickershop\.line-scdn\.net\/stickershop\/v1\/sticker\/([0-9]+)\/android\/sticker\.png/;
+
+
 //逐一建立li, 並放置圖片資訊在 li 當中
 for (let link of newArr) {
-    if ((match = pattern.exec(link)) !== null) {
+    if ((match = re.exec(link)) !== null) {
         /**
           * match[0] = full match
           * eg. https://stickershop.line-scdn.net/stickershop/v1/sticker/380512276/android/sticker.png
