@@ -1,12 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+    <style>
+        .CSS{
+            display: block;
+            list-style-type: none;
+            border: 2px solid rgb(43, 42, 46);
+        }
+    </style>
 </head>
+
 <body>
-    
+    <ul id="myList" class="CSS">
+    </ul>
+
+
+    <script>
+        let objPerson = {
+            name: "Alex",
+            age: 18,
+            eng_score: 87,
+            math_score: 90
+        };
+
+        let objPerson1 = {
+            name: "Bill",
+            age: 19,
+            eng_score: 95,
+            math_score: 98
+        };
+
+        let objPerson2 = {
+            name: "Cook",
+            age: 17,
+            eng_score: 100,
+            math_score: 73
+        };
+        
+        let str = `{
+    "phoneNumber":[
+    {
+        "name": "Alex", 
+    "age": "18", 
+    "eng_score": "87", 
+    "math_score": "90"
+},
+    { 
+        "name": "Bill", 
+    "age": "19", 
+    "eng_score": "95", 
+    "math_score": "98"
+},
+    {
+        "name": "Cook", 
+    "age":"17", 
+    "eng_score":"100", 
+    "math_score": "73"}
+]
+    }`;
+
+
+
+        // console.log(str);
+
+        let obj = JSON.parse(str);
+
+        // console.log(obj['name'])
+
+        let ul = document.querySelector("ul#myList");
+
+        let li = document.createElement("li");
+
+        for (let o of obj['phoneNumber']) {
+
+            
+
+            console.log('名字 ' + o['name']);
+            console.log('年齡 為 ' + o['age'] + '歲');
+            console.log('英文成績 為 ' + o['eng_score'] + '分');
+            console.log('數學成績 為 ' + o['math_score'] + '分');
+
+            console.log('=================');
+
+
+            let textNode = document.createTextNode('名字 ' + o['name']);
+            let textNode1 = document.createTextNode('年齡 為 ' + o['age'] + '歲');
+            let textNode2 = document.createTextNode('英文成績 為 ' + o['eng_score'] + '分');
+            let textNode3 = document.createTextNode('數學成績 為 ' + o['math_score'] + '分');
+            let textNode4 = document.createTextNode('=================');
+            
+        li.appendChild(textNode );
+        
+        li.appendChild(textNode1);
+        li.appendChild(textNode2);
+        li.appendChild(textNode3);
+        li.appendChild(textNode4);
+        ul.appendChild(li);
+        }
+        
+
+        let math_score_1 = (objPerson2.math_score + objPerson1.math_score + objPerson.math_score)/3;
+
+        console.log('學生 數學平均分數 為 ' + math_score_1 + '分');
+       
+document.write('學生 數學平均分數 為 ' + math_score_1 + '分' +'<br />');
+
+        let eng_score_1 = (objPerson2.eng_score + objPerson1.eng_score + objPerson.eng_score)/3;
+
+        console.log('學生 英文平均分數 為 ' + eng_score_1 + '分');
+        document.write( );
+    document.write('學生 英文平均分數 為 ' + eng_score_1 + '分' + '<br');
+    </script>
 </body>
+
 </html>

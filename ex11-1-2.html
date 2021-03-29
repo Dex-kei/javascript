@@ -22,11 +22,13 @@
         "phoneNumber":[
             {
                 "type":"office",
-                "number": "6631-6666"
+                "number": "6631-6666",
+                "age":"18"
             },
             {
                 "type":"fax",
-                "number":"6631-6598"
+                "number":"6631-6598",
+                "age":"18"
             }
         ]
     }`;
@@ -38,6 +40,9 @@
 
         //讀取 obj 物件屬性 address 裡面的物件屬性 streetAddress
         console.log(obj['address']['stresstAddress']);
+
+        
+        
 
         //將 obj 物件屬性 phoneNumber 當中的陣列資料（裡面是物件）逐一列出
         for (let o of obj['phoneNumber']) {
